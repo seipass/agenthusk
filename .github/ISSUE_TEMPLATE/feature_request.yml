@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a bounded, local-first AgentHusk improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        AgentHusk stays local-first, bounded, and report-only. Do not include real secrets, report files, or sensitive paths.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What local residue-review problem should AgentHusk solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the smallest useful behavior and its safety boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundary check
+      options:
+        - label: The proposal does not require uploading scanned files or reports.
+          required: true
+        - label: The proposal does not require executing discovered commands or MCP servers.
+          required: true

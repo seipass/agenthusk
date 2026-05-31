@@ -1,0 +1,48 @@
+{
+  "name": "agenthusk",
+  "version": "0.1.0",
+  "description": "Local-first forensic scanner for secrets and risky residue left by AI coding agents.",
+  "type": "module",
+  "bin": {
+    "agenthusk": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "docs/assets/agenthusk-social.svg",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "demo": "node src/cli.js demo --out demo/agenthusk-demo.html --json demo/agenthusk-demo.json",
+    "scan": "node src/cli.js scan",
+    "test": "node --test",
+    "check": "node --check src/cli.js && node --check src/scanner.js && node --check src/report.js && node --check src/demo.js && node --check scripts/smoke-pack.js",
+    "smoke:pack": "node scripts/smoke-pack.js",
+    "release:check": "npm test && npm run check && npm run demo && npm run smoke:pack && npm publish --dry-run"
+  },
+  "keywords": [
+    "ai-agent",
+    "security",
+    "secrets",
+    "mcp",
+    "forensics",
+    "local-first",
+    "codex",
+    "claude-code",
+    "gemini-cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seipass/agenthusk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seipass/agenthusk/issues"
+  },
+  "homepage": "https://github.com/seipass/agenthusk#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

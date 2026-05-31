@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+agenthusk-report.html
+agenthusk-report.json
+demo/*.html
+demo/*.json
+*.tmp
