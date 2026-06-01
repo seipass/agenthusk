@@ -228,7 +228,10 @@ function descriptorPath(fileDescriptor) {
   for (const basePath of ["/proc/self/fd", "/dev/fd"]) {
     const alias = path.join(basePath, String(fileDescriptor));
     try {
-      return { alias, realPath: fs.realpathSync.native(alias) };
+      const realPath = fs.realpathSync.native(alias);
+      // macOS may resolve /dev/fd aliases to themselves instead of the opened file.
+      if (isWithinRoot(realPath, basePath)) continue;
+      return { alias, realPath };
     } catch {
       // Descriptor aliases are platform-specific. The pre-open check remains as a fallback.
     }
