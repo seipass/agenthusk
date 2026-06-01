@@ -15,18 +15,18 @@ AgentHusk does not start configured MCP servers, execute discovered commands, or
 Requires Node.js 20 or later.
 
 ```sh
-cd /path/to/agenthusk
-node src/cli.js demo
-node src/cli.js scan
+npx agenthusk demo
+npx agenthusk scan
 ```
 
 `demo` creates a safe synthetic report. `scan` inspects the supported agent directories that exist under your home directory and writes a local report for review.
 
-After an npm release, the intended equivalent commands are:
+Install globally if you prefer a persistent command:
 
 ```sh
-npx agenthusk demo
-npx agenthusk scan
+npm install -g agenthusk
+agenthusk demo
+agenthusk scan
 ```
 
 ## What it detects
@@ -82,13 +82,13 @@ Support means that AgentHusk knows where to look. It does not imply affiliation 
 By default, AgentHusk writes `agenthusk-report.html` and `agenthusk-report.json` in the current directory. On POSIX platforms, reports are created with owner-only mode `0600`. Windows ACL enforcement is not implemented.
 
 ```sh
-node src/cli.js scan --root /path/to/review --max-files 5000
-node src/cli.js scan --root /path/to/review-copy --max-bytes 8388608
-node src/cli.js scan --card agenthusk-card.svg
-node src/cli.js demo --out demo/report.html --json demo/report.json --card demo/card.svg
+npx agenthusk scan --root /path/to/review --max-files 5000
+npx agenthusk scan --root /path/to/review-copy --max-bytes 8388608
+npx agenthusk scan --card agenthusk-card.svg
+npx agenthusk demo --out demo/report.html --json demo/report.json --card demo/card.svg
 ```
 
-Use `--root` to scan an explicit directory instead of the default known roots; repeat it to scan more than one. Run `node src/cli.js help` for the full option list.
+Use `--root` to scan an explicit directory instead of the default known roots; repeat it to scan more than one. Run `npx agenthusk help` for the full option list.
 
 Paths are anonymized by default so reports are safer to review and share. Use `--max-bytes` to change the per-file content-inspection limit. The SVG share card omits paths entirely.
 

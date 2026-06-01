@@ -30,7 +30,7 @@ Does not intentionally change source artifacts. No upload. No telemetry. Default
 2. AgentHusk scans known agent directories locally without intentionally changing source artifacts. Its default anonymized reports keep matched content values out.
 3. Reports use short, per-run fingerprints to group repeated matches and anonymize source paths by default. They still contain forensic metadata, so review before sharing.
 4. AgentHusk is narrow by design: no external API, upload, telemetry, automatic deletion, or claim that a clean scan proves a machine is safe.
-5. Try the synthetic demo first: `node src/cli.js demo`. Then scan locally with `node src/cli.js scan`.
+5. Try the synthetic demo first: `npx agenthusk demo`. Then scan locally with `npx agenthusk scan`.
 
 ## Hacker News
 
@@ -49,7 +49,7 @@ This is deliberately a narrow tool. Pattern matching can miss secrets or produce
 The safe starting point is the synthetic demo:
 
 ```sh
-node src/cli.js demo
+npx agenthusk demo
 ```
 
 Feedback on redaction edge cases, bounded traversal, agent storage layouts, and useful low-noise rules would be helpful.
@@ -76,7 +76,7 @@ AgentHusk started from a simple concern: local AI coding-agent state is useful, 
 
 The tool is intentionally constrained. It scans known local directories without intentionally modifying source artifacts, writes default anonymized reports without copying matched content values, and avoids network calls and telemetry. It does not delete files, rotate credentials, or claim that a clean scan proves safety.
 
-Start with `node src/cli.js demo` for a synthetic report. If you run `node src/cli.js scan`, keep the generated report local until you have reviewed its metadata.
+Start with `npx agenthusk demo` for a synthetic report. If you run `npx agenthusk scan`, keep the generated report local until you have reviewed its metadata.
 
 ## FAQ
 
@@ -98,8 +98,8 @@ No. Scanned source artifacts are not intentionally modified. AgentHusk writes re
 
 ## Launch checklist
 
-- Run `node src/cli.js demo` and inspect the synthetic report.
-- Run `node src/cli.js scan` as an ordinary user against a snapshot or copied tree and inspect report metadata locally.
+- Run `npx agenthusk demo` and inspect the synthetic report.
+- Run `npx agenthusk scan` as an ordinary user against a snapshot or copied tree and inspect report metadata locally.
 - Avoid scanning live writable trees, FUSE or network mounts, or running with elevated privileges.
 - Confirm that the preview image renders from `docs/assets/agenthusk-social.svg`.
 - Upload `docs/assets/agenthusk-social.png` as the GitHub social preview.
